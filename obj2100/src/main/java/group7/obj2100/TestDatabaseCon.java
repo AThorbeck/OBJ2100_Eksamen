@@ -3,7 +3,7 @@ import java.sql.*;
 
 //@author www.luv2code.com
 
-public class JDBC {
+public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
     Connection myConn = null;
