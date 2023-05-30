@@ -2,7 +2,7 @@ package Group7.EksamenMai;
 
 /**
  * Hello world!
- *
+ * MARTIN 
  */
 public class App 
 {
