@@ -1,5 +1,6 @@
 package group7.obj2100;
 import java.sql.*;
+import java.util.*;
 
 public class ListAllProd {
     public static void main(String[] args) throws SQLException {
@@ -14,7 +15,7 @@ public class ListAllProd {
         try {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection(dbUrl, user, pass);
-            System.out.println("Database successfully connected");
+
 
 
             // 2. Create a statement
@@ -23,8 +24,7 @@ public class ListAllProd {
             myRs = myStmt.executeQuery("SELECT * FROM products ");
 
             while (myRs.next()) {
-                System.out.println(myRs.getString("productName") + ", " + myRs.getString("ProductLine") +
-                        ", " + myRs.getString("ProductVendor") + ", " + myRs.getString("productDescription"));
+                System.out.println( "Product: " + myRs.getString("productName") + "") ;
             }
         }
 
@@ -40,4 +40,4 @@ public class ListAllProd {
         }
     }
 }
-}
+

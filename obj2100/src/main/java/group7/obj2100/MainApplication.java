@@ -463,4 +463,4 @@ import java.sql.SQLException;
         MainApplication application = new MainApplication();
         application.databaseConnection = connection;
     }
-} /*
+} */
