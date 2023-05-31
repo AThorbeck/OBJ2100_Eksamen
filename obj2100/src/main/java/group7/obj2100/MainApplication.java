@@ -1,4 +1,3 @@
-
 // NEW
 package gui;
 
@@ -170,7 +169,7 @@ public class MainApplication extends JFrame {
         });
         add(aboutButton);
 
-
+// list all products
         setLayout(new FlowLayout());
 
         // Add buttons or other components to the main view
@@ -182,7 +181,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==listAllProductsButton) {
                     dispose(); // gets rid of main page and goes to list all products page
-                    MyApp myWindow = new MyApp(); // connects to class MyApp.java
+                    AllProducts myWindow = new AllProducts(); // connects to class AllProducts.java
                 }
 
                 listAllProducts();
@@ -191,6 +190,35 @@ public class MainApplication extends JFrame {
         });
 
         add(listAllProductsButton);
+
+        // list all products
+
+
+        // List all offices
+
+        setLayout(new FlowLayout());
+
+        JButton listAllOfficesButton = new JButton("List all offices");
+
+        listAllOfficesButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllOfficesButton) {
+                    dispose(); // gets rid of main page and goes to list all offices page
+                    AllOffices myWindow = new AllOffices(); // connects to class AllOffices.java
+
+                }
+
+                listAllOffices();
+            }
+
+        });
+
+        add(listAllOfficesButton);
+
+
+        // list all offices
 
 
 
@@ -278,6 +306,13 @@ public class MainApplication extends JFrame {
     }
 
     private void listAllProducts() {
+
+
+
+
+    }
+
+    private void listAllOffices() {
 
 
 
