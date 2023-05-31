@@ -1,5 +1,7 @@
 // NEW
-package gui;
+
+
+import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -18,19 +20,19 @@ import java.sql.SQLException;
  */
 public class MainApplication extends JFrame {
 
+
     private Connection databaseConnection;
+
 
 
     public MainApplication() {
         super("OBJ2100 Exam 2023 - Group XX");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
         setSize(500, 500);
 
 
         super.getContentPane().setBackground(new Color(234, 234, 234)); // background color of frame (gray color)
-
-
-
 
 
         setMaximizedBounds(new Rectangle(900, 500)); // sets max size
@@ -42,12 +44,9 @@ public class MainApplication extends JFrame {
         menuBar.setBackground(new Color(255, 255, 255)); // sets color of Menu bar (white color)
 
 
-
         // File menu
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
-
-
 
 
         JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");
@@ -124,9 +123,6 @@ public class MainApplication extends JFrame {
         helpMenu.add(aboutMenuItem);
 
 
-
-
-
         // Set layout
         setLayout(new FlowLayout());
 
@@ -144,6 +140,8 @@ public class MainApplication extends JFrame {
 
         add(selectFolderButton);
 
+
+
         JButton databaseButton = new JButton("Test database connection"); // test database connection button
         databaseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -151,7 +149,6 @@ public class MainApplication extends JFrame {
             }
         });
         add(databaseButton);
-
 
 
         JButton sqlButton = new JButton("Execute SQL query"); // test database connection button
@@ -172,17 +169,74 @@ public class MainApplication extends JFrame {
         });
         add(aboutButton);
 
+// list all products
+        setLayout(new FlowLayout());
+
+        // Add buttons or other components to the main view
+        JButton listAllProductsButton = new JButton("List all products");
+
+        listAllProductsButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllProductsButton) {
+                    dispose(); // gets rid of main page and goes to list all products page
+                    AllProducts myWindow = new AllProducts(); // connects to class AllProducts.java
+                }
+
+                listAllProducts();
+            }
+
+        });
+
+        add(listAllProductsButton);
+
+        // list all products
+
+
+        // List all offices
+
+        setLayout(new FlowLayout());
+
+        JButton listAllOfficesButton = new JButton("List all offices");
+
+        listAllOfficesButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllOfficesButton) {
+                    dispose(); // gets rid of main page and goes to list all offices page
+                    AllOffices myWindow = new AllOffices(); // connects to class AllOffices.java
+
+                }
+
+                listAllOffices();
+            }
+
+        });
+
+        add(listAllOfficesButton);
+
+
+        // list all offices
+
+
+
 
 
 
         JButton exitButton = new JButton("Exit");  // exit button
 // HERE
-        exitButton.setBounds(20,10,10,5);
+
         exitButton.setFont(new Font("Arial", Font.BOLD, 28));
+        add(exitButton, BorderLayout.NORTH);
+
+        pack();
+        setVisible(true);
 
 
-        this.add(exitButton);
 // HERE
+
         exitButton.addActionListener(new ActionListener()
         {
 
@@ -197,6 +251,11 @@ public class MainApplication extends JFrame {
 
         setVisible(true);
     }
+
+
+
+
+
 
     private void selectFolder() {
         // Legg til funksjon her
@@ -246,7 +305,22 @@ public class MainApplication extends JFrame {
         JOptionPane.showMessageDialog(this, "This is a GUI application made by group 7.");
     }
 
+    private void listAllProducts() {
+
+
+
+
+    }
+
+    private void listAllOffices() {
+
+
+
+
+    }
+
     public static void main(String[] args) {
+
         // Connect to the MySQL database
         Connection connection = null;
         try {
@@ -272,12 +346,16 @@ public class MainApplication extends JFrame {
 
 
 
+
+
+
+
         // Initialize the application
         MainApplication application = new MainApplication();
         application.databaseConnection = connection;
-        
-        
-        
+
+
+
     }
 }
 
