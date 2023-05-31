@@ -1,3 +1,5 @@
+
+
 // NEW
 
 
@@ -35,7 +37,7 @@ public class MainApplication extends JFrame {
         super.getContentPane().setBackground(new Color(234, 234, 234)); // background color of frame (gray color)
 
 
-        setMaximizedBounds(new Rectangle(900, 500)); // sets max size
+        // setMaximizedBounds(new Rectangle(900, 500)); // sets max size
         // Border border = BorderFactory.createLineBorder(Color.black, 3); // adds black border
 
         // Create main menu
@@ -225,6 +227,73 @@ public class MainApplication extends JFrame {
 
 
 
+
+        // addEmployee
+
+
+        JButton EmployeeButton = new JButton("Add or modify Employee");
+
+        EmployeeButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==EmployeeButton) {
+                    dispose(); // gets rid of main page and goes to list add employee page
+                    Employee myWindow = new Employee(); // connects to class Employee.java
+
+                }
+
+                addEmployee();
+            }
+
+        });
+
+        add(EmployeeButton);
+
+
+
+        // addEmployee
+
+
+
+
+
+
+
+
+
+        // Bulk import of orders
+
+
+        JButton bulkImportOrdersButton = new JButton("Bulk import of orders");
+
+        bulkImportOrdersButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==bulkImportOrdersButton) {
+                    dispose(); // gets rid of main page and goes to list add Bulk import of order page
+                    ImportOrders myWindow = new ImportOrders(); // connects to class ImportOrders.java
+
+                }
+
+                bulkImportOrders();
+            }
+
+        });
+
+        add(bulkImportOrdersButton);
+
+
+
+        // Bulk import of orders
+
+
+
+
+
+
+
         JButton exitButton = new JButton("Exit");  // exit button
 // HERE
 
@@ -319,6 +388,15 @@ public class MainApplication extends JFrame {
 
     }
 
+    private void addEmployee() {
+
+
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
         // Connect to the MySQL database
@@ -358,7 +436,6 @@ public class MainApplication extends JFrame {
 
     }
 }
-
 
 // NEW ^^
 
