@@ -1,8 +1,8 @@
+
 package group7.obj2100;
-import java.sql.*;
 
 //@author www.luv2code.com
-
+/*/
 public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
@@ -41,3 +41,5 @@ public static void main(String[] args) throws SQLException {
     }
 }
 }
+
+ */

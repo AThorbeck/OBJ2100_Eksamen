@@ -92,7 +92,7 @@ public class EmployeeFormDialog extends JDialog {
     
 	 // Database connection parameters
 	    String url = "jdbc:mysql://localhost:3306/classicmodels";
-	    String username = "student"; 
+	    String username = "student";
 	    String password = "student";
         {
 	    
