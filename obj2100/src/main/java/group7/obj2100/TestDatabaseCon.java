@@ -18,7 +18,7 @@ public static void main(String[] args) throws SQLException {
     try {
         // 1. Get a connection to database
         myConn = DriverManager.getConnection(dbUrl, user, pass);
-        System.out.println("Database is successfully connected");
+        System.out.println("Database connection successful");
 
     }
 
