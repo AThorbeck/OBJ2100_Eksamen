@@ -239,7 +239,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==EmployeeButton) {
                     dispose(); // gets rid of main page and goes to list add employee page
-                    Employee myWindow = new Employee(); // connects to class Employee.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class Employee.java
 
                 }
 
