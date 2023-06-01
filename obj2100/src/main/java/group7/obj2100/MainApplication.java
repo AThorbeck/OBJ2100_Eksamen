@@ -22,7 +22,7 @@ public class MainApplication extends JFrame {
 
 
     public MainApplication() {
-        super("OBJ2100 Exam 2023 - Group XX");
+        super("OBJ2100 Exam 2023 - Group 7");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setSize(500, 500);
@@ -243,8 +243,8 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==listAllOfficesButton) {
                     dispose(); // gets rid of main page and goes to list all offices page
-                    AllOffices myWindow = new AllOffices(); // connects to class AllOffices.java
-                    myWindow.load();
+                    ListAllOffices myWindow = new ListAllOffices(); // connects to class AllOffices.java
+                    myWindow.start();
                 }
 
                 listAllOffices();
