@@ -282,7 +282,12 @@ public class MainApplication extends JFrame {
 
         add(bulkImportOrdersButton);
 
-
+        importButton = new JButton("Import Bulk");
+        importButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                BulkImport.importBulk(); // Call the importBulk method from BulkImport class
+            }
+        });
 
         // Bulk import of orders
 
