@@ -27,7 +27,7 @@ public class CustomerWriter {
     private JComboBox < String > inputComboBox;
     private JButton searchButton;
 
-    public static void main(String[] args) {
+    public static void runCustomerWriter() {
         CustomerWriter customerWriter = new CustomerWriter();
         customerWriter.createUI();
     }

@@ -372,7 +372,8 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==writeCustomerToFileButton) {
                     // dispose(); // gets rid of main page and goes to list all products page
-                    CustomerWriter myWindow = new CustomerWriter(); // connects to class CustomerWriter.java
+                    CustomerWriter myWindow = new CustomerWriter();// connects to class CustomerWriter.java
+                    myWindow.runCustomerWriter();
                 }
 
                 writeCustomersToFile();
