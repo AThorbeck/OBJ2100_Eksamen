@@ -64,8 +64,13 @@ public class MainApplication extends JFrame {
         });
         fileMenu.add(writeCustomersMenuItem);
 
-        
-        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database");  // bulkInport meny button
+        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");
+        bulkImportMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bulkImportOrders();
+            }
+        });
+        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database"); // bulkInport meny button
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
