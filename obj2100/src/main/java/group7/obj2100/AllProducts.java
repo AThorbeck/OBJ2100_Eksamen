@@ -1,4 +1,5 @@
-/*
+ /*  IKKE I BRUK!!!!
+ 
 package group7.obj2100;
 
 import javax.swing.*;
