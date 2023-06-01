@@ -9,7 +9,7 @@ public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
     Connection myConn = null;
-    
+
 
     String dbUrl = "jdbc:mysql://localhost:3306/classicmodels";
     String user = "root";

@@ -467,12 +467,14 @@ public class MainApplication extends JFrame {
 
   private void testDatabaseConnection() {
         Object TestDatabaseCon = null;
-        if (Objects.equals(TestDatabaseCon, true)) {
-            JOptionPane.showMessageDialog(null, "Great sucess!!!");
+        if (TestDatabaseCon != null) {
+
+
+            JOptionPane.showMessageDialog(null, "Database connection unsuccessful");
             
 
         } else {
-            JOptionPane.showMessageDialog(null, "FUCK!!!");
+            JOptionPane.showMessageDialog(null, "Database connection successful");
         }
 
     }
