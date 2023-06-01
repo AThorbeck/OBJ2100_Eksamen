@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import group7.obj2100.EmployeeFormDialog;
 /**
  * Author: Exam Group 7
  * Purpose: The purpose of this app is to create a simple GUI window with different functions that is connected to MySQL
