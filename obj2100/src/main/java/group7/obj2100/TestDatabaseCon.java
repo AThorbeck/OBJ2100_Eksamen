@@ -25,7 +25,6 @@ public static void main(String[] args) throws SQLException {
 
 
         if (connection != null){
-       System.out.println("Database connection unsuccessful");
         connection.close();}
     }
 }
