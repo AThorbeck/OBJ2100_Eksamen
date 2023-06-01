@@ -1,3 +1,5 @@
+package group7.obj2100;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
