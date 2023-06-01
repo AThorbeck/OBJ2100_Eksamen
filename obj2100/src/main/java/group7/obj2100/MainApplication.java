@@ -277,7 +277,7 @@ public class MainApplication extends JFrame {
                     JFrame frame = new JFrame();
 
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog(frame);
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog();
                      // connects to class Employee.java
                         myWindow.runEmployeeDialog();
         
