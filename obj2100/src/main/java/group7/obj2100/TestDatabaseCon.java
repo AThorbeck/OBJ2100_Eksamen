@@ -2,7 +2,9 @@
 package group7.obj2100;
 
 //@author www.luv2code.com
-/*/
+
+import java.sql.*;
+
 public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
@@ -16,25 +18,12 @@ public static void main(String[] args) throws SQLException {
     try {
         // 1. Get a connection to database
         myConn = DriverManager.getConnection(dbUrl, user, pass);
-        System.out.println("Database successfully connected");
+        System.out.println("Database is successfully connected");
 
-
-        // 2. Create a statement
-        myStmt = myConn.createStatement();
-
-        myRs = myStmt.executeQuery("SELECT * FROM offices ");
-
-        while (myRs.next()) {
-        System.out.println(myRs.getString("city") + ", " + myRs.getString("country"));
-        }
     }
 
         finally{
-        if(myRs != null){
-        myRs.close();}
 
-        if (myStmt != null) {
-            myStmt.close();}
 
         if (myConn != null){
         myConn.close();}
@@ -42,4 +31,3 @@ public static void main(String[] args) throws SQLException {
 }
 }
 
- */
