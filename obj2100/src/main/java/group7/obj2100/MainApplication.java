@@ -272,8 +272,10 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==EmployeeButton) {
+                    JFrame parent = new JFrame();
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class Employee.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(parent); // connects to class Employee.java
+
 
                 }
 
@@ -308,7 +310,7 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==bulkImportOrdersButton) {
                     dispose(); // gets rid of main page and goes to list add Bulk import of order page
                     BulkImport myWindow = new BulkImport(); // connects to class BulkImport.java
-                    myWindow.importFileToDatabase();
+                    myWindow.runBulk();
                 }
 
 

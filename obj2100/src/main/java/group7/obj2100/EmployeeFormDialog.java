@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class EmployeeFormDialog extends JDialog {
+public class EmployeeFormDialog extends JFrame {
     private JTextField employeeNumberField;
     private JTextField firstNameField;
     private JTextField lastNameField;
@@ -24,7 +24,7 @@ public class EmployeeFormDialog extends JDialog {
     private static String password = "";
 
     public EmployeeFormDialog(JFrame parent) {
-        super(parent, "Employee Form", true);
+        super("Employee Form");
 
         // Create the form components
         JLabel employeeNumberLabel = new JLabel("Employee Number:");
@@ -134,11 +134,15 @@ public class EmployeeFormDialog extends JDialog {
         setLocationRelativeTo(parent);
     }
 
-
-
     public EmployeeFormDialog() {
 
     }
+
+
+    public static void EmployeeFormDialog(){
+
+}
+
 
 
     private void saveEmployeeData() {
