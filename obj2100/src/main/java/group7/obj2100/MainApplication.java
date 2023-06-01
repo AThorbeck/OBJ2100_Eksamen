@@ -1,7 +1,5 @@
-
 package group7.obj2100;
-
-import com.sun.tools.javac.Main;
+// import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -183,7 +181,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==listAllProductsButton) {
                     dispose(); // gets rid of main page and goes to list all products page
-                    ListAllProd myWindow = new ListAllProd(); // connects to class AllProducts.java
+                    AllProducts myWindow = new AllProducts(); // connects to class AllProducts.java
                 }
 
                 listAllProducts();
@@ -239,7 +237,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==EmployeeButton) {
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class Employee.java
+                    Employee myWindow = new Employee(); // connects to class Employee.java
 
                 }
 
@@ -297,11 +295,6 @@ public class MainApplication extends JFrame {
         JButton exitButton = new JButton("Exit");  // exit button
 // HERE
 
-
-
-
-        pack();
-        setVisible(true);
 
 
 // HERE
@@ -436,3 +429,4 @@ public class MainApplication extends JFrame {
 
     }
 }
+
