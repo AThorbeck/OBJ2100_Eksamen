@@ -325,6 +325,35 @@ public class MainApplication extends JFrame {
 
         // Bulk import of orders
         add(bulkImportOrdersButton);
+        
+        
+        
+       
+
+
+
+// change folder
+
+        JButton changeFolderButton = new JButton("Change folder");
+
+        changeFolderButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==changeFolderButton) {
+                   // dispose(); // gets rid of main page and goes to list all products page
+                    FolderSelection myWindow = new FolderSelection(); // connects to class ListAllProd.java
+                }
+
+                selectFolder();
+            }
+
+        });
+
+        add(changeFolderButton);
+
+
+        // change folder
 
 
 
