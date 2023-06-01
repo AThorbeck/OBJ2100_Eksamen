@@ -1,3 +1,5 @@
+package group7.obj2100;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
