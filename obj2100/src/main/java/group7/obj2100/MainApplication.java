@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 
 /**
  * Author: Exam Group 7
@@ -275,15 +273,16 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==EmployeeButton) {
-                    SwingUtilities.invokeLater(() -> {
+
                     JFrame frame = new JFrame();
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog dialog = new EmployeeFormDialog(frame);
-                    dialog.setVisible(true); // connects to class Employee.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(frame);
+                     // connects to class Employee.java
+                        myWindow.runEmployeeDialog();
         
 
-                });
+
                 }
                 addEmployee();
             }

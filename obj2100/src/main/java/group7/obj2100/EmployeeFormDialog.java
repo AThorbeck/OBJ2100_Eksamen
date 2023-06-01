@@ -257,6 +257,42 @@ public class EmployeeFormDialog extends JFrame {
         }
     }
 
+    public static void runEmployeeDialog() {
 
+// Create and show the dialog
+
+        SwingUtilities.invokeLater(() -> {
+
+            JFrame frame = new JFrame();
+
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+
+            JButton openButton = new JButton("Open Employee Form");
+
+            openButton.addActionListener(e -> {
+
+                EmployeeFormDialog dialog = new EmployeeFormDialog(frame);
+
+                dialog.setVisible(true);
+
+            });
+
+
+
+            frame.getContentPane().add(openButton);
+
+            frame.pack();
+
+            frame.setLocationRelativeTo(null);
+
+            frame.setVisible(true);
+
+        });
+
+    }
 
 }
+
+
