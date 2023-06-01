@@ -9,8 +9,7 @@ public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
     Connection myConn = null;
-    Statement myStmt = null;
-    ResultSet myRs = null;
+    
 
     String dbUrl = "jdbc:mysql://localhost:3306/classicmodels";
     String user = "root";
@@ -26,6 +25,7 @@ public static void main(String[] args) throws SQLException {
 
 
         if (myConn != null){
+       System.out.println("Database connection unsuccessful");
         myConn.close();}
     }
 }

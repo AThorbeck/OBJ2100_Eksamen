@@ -110,7 +110,7 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==addModifyEmployeeMenuItem) {
 
                     EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class ListAllProd.java
-
+                    myWindow.runEmployeeDialog();
                 }
                 addModifyEmployee();
             }
