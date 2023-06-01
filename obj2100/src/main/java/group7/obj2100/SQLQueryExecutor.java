@@ -1,29 +1,31 @@
+package group7.obj2100;
+
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
-import javax.swing.*;
 
 public class SQLQueryExecutor {
 
     private static final String URL = "jdbc:mysql://localhost:3306/classicmodels";
-    private static final String USERNAME = "student";
-    private static final String PASSWORD = "student";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
 
     private static Connection conn;
     private static Statement statement;
     private static BufferedWriter writer;
     private static int fileCounter;
 
-    public static void main(String[] args) {
+    public static void runSqlQueryExecutor() {
         try {
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             statement = conn.createStatement();
             writer = null;
             fileCounter = 1;
 
-            SwingUtilities.invokeLater(() - > showTableSelection());
+            SwingUtilities.invokeLater(() -> showTableSelection());
         } catch (SQLException e) {
             e.printStackTrace();
         }

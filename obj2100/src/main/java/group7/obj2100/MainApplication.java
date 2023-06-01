@@ -68,13 +68,13 @@ public class MainApplication extends JFrame {
                 bulkImportOrders();
             }
         });
-        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");
+        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database");
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==bulkImportMenuItem) {
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog();
-                    myWindow.????();
+                   BulkImport myWindow = new BulkImport();
+                    myWindow.runBulk();
                 }
 
                 bulkImportOrders();
@@ -208,7 +208,9 @@ public class MainApplication extends JFrame {
 
         sqlButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                sql();
+                dispose(); // gets rid of main page and goes to SQLExecutor
+                SQLQueryExecutor myWindow = new SQLQueryExecutor();
+                myWindow.runSqlQueryExecutor();
             }
         });
         add(sqlButton);
