@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 //@author Andreas
 
-public class FolderSelectionButton {
+public class FolderSelection {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Folder Selection Button");
