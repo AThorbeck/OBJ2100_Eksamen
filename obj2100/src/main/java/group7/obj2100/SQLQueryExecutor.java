@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class SQLQueryExecutor {
-
+    // Database connection using student as username and password, and the URL is connected to the database table classicmodels.
     private static final String URL = "jdbc:mysql://localhost:3306/classicmodels";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
@@ -19,7 +19,8 @@ public class SQLQueryExecutor {
     private static Statement statement;
     private static BufferedWriter writer;
     private static int fileCounter;
-
+    
+    // Method for running the SQLQUERYEXECUTOR
     public static void runSqlQueryExecutor() {
         try {
             conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -32,7 +33,7 @@ public class SQLQueryExecutor {
             e.printStackTrace();
         }
     }
-
+    // Selection for the tables from the database
     private static void showTableSelection() {
         try {
             DefaultListModel < String > tableListModel = new DefaultListModel < > ();
@@ -68,7 +69,7 @@ public class SQLQueryExecutor {
             e.printStackTrace();
         }
     }
-
+    // The different options to do with the SQL query, you can execute SELECT, UPDATE, INSERT, DELETE, and you also have a Go back button.
     private static void showActionSelection(String tableName) {
         String[] options = {
             "Select",
@@ -88,7 +89,7 @@ public class SQLQueryExecutor {
             options,
             options[0]
         );
-
+        // From selected table, you'll get different options
         switch (selectedAction) {
             case 0:
                 executeSelectQuery(tableName);
@@ -111,7 +112,7 @@ public class SQLQueryExecutor {
                 break;
         }
     }
-
+    // Code for executing SQL SELECT querys 
     private static void executeSelectQuery(String tableName) {
         try {
             String query = JOptionPane.showInputDialog("Enter the SELECT query:");
@@ -137,7 +138,7 @@ public class SQLQueryExecutor {
 
         showActionSelection(tableName);
     }
-
+    // Code for executing SQL UPDATE querys
     private static void executeUpdateQuery(String tableName) {
         try {
             String query = JOptionPane.showInputDialog("Enter the UPDATE query:");
@@ -156,7 +157,7 @@ public class SQLQueryExecutor {
 
         showActionSelection(tableName);
     }
-
+    // Code for executing SQL INSERT querys
     private static void executeInsertQuery(String tableName) {
         try {
             String query = JOptionPane.showInputDialog("Enter the INSERT query:");
@@ -175,7 +176,7 @@ public class SQLQueryExecutor {
 
         showActionSelection(tableName);
     }
-
+    // Code for executing SQL DELETE querys
     private static void executeDeleteQuery(String tableName) {
         try {
             String query = JOptionPane.showInputDialog("Enter the DELETE query:");
@@ -194,7 +195,7 @@ public class SQLQueryExecutor {
 
         showActionSelection(tableName);
     }
-
+    // Code for printing out the result of the SQL query
     private static void printResultSet(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
         int columnCount = metaData.getColumnCount();
@@ -214,6 +215,7 @@ public class SQLQueryExecutor {
         JOptionPane.showMessageDialog(null, scrollPane, "Query Result", JOptionPane.PLAIN_MESSAGE);
     }
 
+    // Saves the result of the SQL query as a .txt file on your Desktop with the name of the table numbered.
     private static void saveResultsToFile(ResultSet resultSet, String tableName) {
         try {
             String fileName = System.getProperty("user.home") + "/Desktop/" + tableName + "_" + fileCounter + ".txt";
