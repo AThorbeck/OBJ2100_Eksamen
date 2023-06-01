@@ -1,4 +1,4 @@
-package Group7.EksamenMai;
+package group7.obj2100;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
