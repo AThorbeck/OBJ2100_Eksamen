@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import group7.obj2100.EmployeeFormDialog;
+
 /**
  * Author: Exam Group 7
  * Purpose: The purpose of this app is to create a simple GUI window with different functions that is connected to MySQL
@@ -273,11 +273,13 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==EmployeeButton) {
-                    JFrame parent = new JFrame();
+                    SwingUtilities.invokeLater(() -> {
+                    JFrame frame = new JFrame();
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog dialog = new EmployeeFormDialog(parent);
+                    EmployeeFormDialog dialog = new EmployeeFormDialog(frame);
                     dialog.setVisible(true); // connects to class Employee.java
-
+        
 
                 }
 
@@ -455,8 +457,7 @@ public class MainApplication extends JFrame {
     }
 
     private void addEmployee() {
-    EmployeeFormDialog employeeFormDialog = new EmployeeFormDialog(this);
-    employeeFormDialog.setVisible(true);
+    
     }
 
 
