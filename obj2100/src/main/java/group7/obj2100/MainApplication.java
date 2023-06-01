@@ -95,9 +95,14 @@ public class MainApplication extends JFrame {
         databaseMenu.add(testConnectionMenuItem);
 
         JMenuItem executeQueryMenuItem = new JMenuItem("Execute SQL Query");
+
+       // EXECUTE
+        
         executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                executeSQLQuery();
+                SQLQueryExecutor myWindow = new SQLQueryExecutor();
+                myWindow.runSqlQueryExecutor();
+
             }
         });
         databaseMenu.add(executeQueryMenuItem);
