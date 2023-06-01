@@ -49,6 +49,8 @@ public class BulkImport {
         }
     }
 
+
+
     public static void importBulk() {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(null);
@@ -68,11 +70,14 @@ public class BulkImport {
         }
     }
 
-    public static void main(String[] args) {
+    public static void runBulk() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 importBulk();
             }
         });
+    }
+
+    public void importFileToDatabase() {
     }
 }

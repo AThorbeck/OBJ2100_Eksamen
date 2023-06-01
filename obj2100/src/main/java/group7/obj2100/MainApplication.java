@@ -308,25 +308,20 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==bulkImportOrdersButton) {
                     dispose(); // gets rid of main page and goes to list add Bulk import of order page
                     BulkImport myWindow = new BulkImport(); // connects to class BulkImport.java
-                    myWindow.load();
+                    myWindow.importFileToDatabase();
                 }
 
-                bulkImport();
+
             }
 
         });
 
-        add(bulkImportOrdersButton);
 
-        importButton = new JButton("Import Bulk");
-        importButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                BulkImport.importBulk(); // Call the importBulk method from BulkImport class
-            }
-        });
+
+
 
         // Bulk import of orders
-
+        add(bulkImportOrdersButton);
 
 
 
@@ -355,9 +350,9 @@ public class MainApplication extends JFrame {
         setVisible(true);
     }
 
+    private void bulkImport() {
 
-
-
+    }
 
 
     private void selectFolder() {
@@ -417,12 +412,6 @@ public class MainApplication extends JFrame {
         JOptionPane.showMessageDialog(this, "This is a GUI application made by group 7.");
     }
 
-    private void listAllProducts() {
-
-
-
-
-    }
 
     private void listAllOffices() {
 
