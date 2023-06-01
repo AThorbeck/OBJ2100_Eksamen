@@ -98,13 +98,28 @@ public class MainApplication extends JFrame {
         });
         databaseMenu.add(executeQueryMenuItem);
 
+       
+        
+        
+        // Add modify employee
+        
         JMenuItem addModifyEmployeeMenuItem = new JMenuItem("Add/Modify Employee");
         addModifyEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==addModifyEmployeeMenuItem) {
+
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class ListAllProd.java
+
+                }
                 addModifyEmployee();
             }
         });
         databaseMenu.add(addModifyEmployeeMenuItem);
+        
+        
+        
+        // add modify employee
 
        
         
