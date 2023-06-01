@@ -1,6 +1,8 @@
 package group7.obj2100;
 // import com.sun.tools.javac.Main;
 
+// Worked on by student: 7127
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,7 +47,7 @@ public class MainApplication extends JFrame {
         menuBar.add(fileMenu);
 
 
-        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");
+        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");  // Select folder meny button
         selectFolderMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 selectFolder();
@@ -54,7 +56,7 @@ public class MainApplication extends JFrame {
 
         fileMenu.add(selectFolderMenuItem);
 
-        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file");
+        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file"); // Select write customer meny button
         writeCustomersMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 writeCustomersToFile();
@@ -62,13 +64,8 @@ public class MainApplication extends JFrame {
         });
         fileMenu.add(writeCustomersMenuItem);
 
-        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");
-        bulkImportMenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                bulkImportOrders();
-            }
-        });
-        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database");
+        
+        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database");  // bulkInport meny button
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
