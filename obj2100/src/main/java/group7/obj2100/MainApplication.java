@@ -358,6 +358,32 @@ public class MainApplication extends JFrame {
 
 
         // change folder
+        
+        
+        
+        //write customer to file
+
+
+        JButton writeCustomerToFileButton = new JButton("Write customer list that match selected criteria into file...");
+
+        writeCustomerToFileButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==writeCustomerToFileButton) {
+                    // dispose(); // gets rid of main page and goes to list all products page
+                    CustomerWriter myWindow = new CustomerWriter(); // connects to class CustomerWriter.java
+                }
+
+                writeCustomersToFile();
+            }
+
+        });
+
+        add(writeCustomerToFileButton);
+
+
+        // write customer to file
 
 
 
