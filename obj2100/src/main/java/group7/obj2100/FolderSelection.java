@@ -1,3 +1,5 @@
+package group7.obj2100;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -7,7 +9,7 @@ import javax.swing.JTextField;
 
 //@author Andreas
 
-public class FolderSelectionButton {
+public class FolderSelection {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Folder Selection Button");
