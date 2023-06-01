@@ -8,7 +8,7 @@ import java.sql.*;
 public class TestDatabaseCon {
 public static void main(String[] args) throws SQLException {
 
-    Connection myConn = null;
+    Connection connection = null;
 
 
     String dbUrl = "jdbc:mysql://localhost:3306/classicmodels";
@@ -16,7 +16,7 @@ public static void main(String[] args) throws SQLException {
     String pass = "";
     try {
         // 1. Get a connection to database
-        myConn = DriverManager.getConnection(dbUrl, user, pass);
+        connection = DriverManager.getConnection(dbUrl, user, pass);
         System.out.println("Database connection successful");
 
     }
@@ -24,9 +24,9 @@ public static void main(String[] args) throws SQLException {
         finally{
 
 
-        if (myConn != null){
+        if (connection != null){
        System.out.println("Database connection unsuccessful");
-        myConn.close();}
+        connection.close();}
     }
 }
 }
