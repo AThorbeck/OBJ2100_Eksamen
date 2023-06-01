@@ -23,7 +23,7 @@ public class EmployeeFormDialog extends JFrame {
     private static String username = "root";
     private static String password = "";
 
-    public EmployeeFormDialog(JFrame parent) {
+    public EmployeeFormDialog(JDialog parent) {
         super("Employee Form");
 
         // Create the form components
@@ -134,15 +134,10 @@ public class EmployeeFormDialog extends JFrame {
         setLocationRelativeTo(parent);
     }
 
-    public EmployeeFormDialog() {
 
+
+    public EmployeeFormDialog(JFrame parent) {
     }
-
-
-    public static void EmployeeFormDialog(){
-
-}
-
 
 
     private void saveEmployeeData() {

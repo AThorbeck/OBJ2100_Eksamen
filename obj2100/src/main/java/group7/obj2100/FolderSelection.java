@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 public class FolderSelection {
 
-    public static void main(String[] args) {
+    public static void loadFolder() {
         JFrame frame = new JFrame("Folder Selection Button");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

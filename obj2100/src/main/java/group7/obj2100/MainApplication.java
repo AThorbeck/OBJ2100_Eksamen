@@ -275,7 +275,8 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==EmployeeButton) {
                     JFrame parent = new JFrame();
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog(parent); // connects to class Employee.java
+                    EmployeeFormDialog dialog = new EmployeeFormDialog(parent);
+                    dialog.setVisible(true); // connects to class Employee.java
 
 
                 }
@@ -343,6 +344,7 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==changeFolderButton) {
                    // dispose(); // gets rid of main page and goes to list all products page
                     FolderSelection myWindow = new FolderSelection(); // connects to class ListAllProd.java
+                    myWindow.loadFolder();
                 }
 
                 selectFolder();
