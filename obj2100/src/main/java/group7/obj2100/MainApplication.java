@@ -68,15 +68,19 @@ public class MainApplication extends JFrame {
                 bulkImportOrders();
             }
         });
-        fileMenu.add(bulkImportMenuItem);
-
-        JMenuItem exitMenuItem = new JMenuItem("Exit app");
-        exitMenuItem.addActionListener(new ActionListener() {
+        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");
+        bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+
+                if(e.getSource()==bulkImportMenuItem) {
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog();
+                    myWindow.????();
+                }
+
+                bulkImportOrders();
             }
         });
-        fileMenu.add(exitMenuItem);
+        fileMenu.add(bulkImportMenuItem);
 
         // Database menu
         JMenu databaseMenu = new JMenu("Database");
