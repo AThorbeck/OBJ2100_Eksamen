@@ -455,11 +455,10 @@ public class MainApplication extends JFrame {
     }
 
     private void addEmployee() {
-
-
-
-
+    EmployeeFormDialog employeeFormDialog = new EmployeeFormDialog(this);
+    employeeFormDialog.setVisible(true);
     }
+
 
 
 
