@@ -451,11 +451,25 @@ public class MainApplication extends JFrame {
     private void selectFolder() {
         // Legg til funksjon her
     }
-
+    
+    // Database
     private void database() {
-        // Legg til funksjon her
+        
+
+        Object TestDatabaseCon = null;
+        if (TestDatabaseCon != null) {
+
+            JOptionPane.showMessageDialog(null, "Database connection unsuccessful");
+
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Database connection successful");
+        }
     }
 
+   
+    
+    
     private void sql() {
 
     }
