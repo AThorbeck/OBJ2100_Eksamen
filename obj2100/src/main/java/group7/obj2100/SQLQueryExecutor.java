@@ -1,6 +1,9 @@
 package group7.obj2100;
 
+<<<<<<< HEAD
 import javax.swing.*;
+=======
+>>>>>>> 5bd2c4338c2c43851da6763f05ffa54cd75cefeb
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
