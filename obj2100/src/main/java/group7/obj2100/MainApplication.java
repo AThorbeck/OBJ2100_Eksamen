@@ -2,11 +2,9 @@ package group7.obj2100;
 // import com.sun.tools.javac.Main;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -179,9 +177,11 @@ public class MainApplication extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
 
+
                 if(e.getSource()==listAllProductsButton) {
                     dispose(); // gets rid of main page and goes to list all products page
-                    AllProducts myWindow = new AllProducts(); // connects to class AllProducts.java
+                    ListAllProd myWindow = new ListAllProd();
+                    myWindow.start();// connects to class AllProducts.java
                 }
 
                 listAllProducts();
@@ -207,7 +207,7 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==listAllOfficesButton) {
                     dispose(); // gets rid of main page and goes to list all offices page
                     AllOffices myWindow = new AllOffices(); // connects to class AllOffices.java
-
+                    myWindow.load();
                 }
 
                 listAllOffices();
@@ -237,7 +237,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==EmployeeButton) {
                     dispose(); // gets rid of main page and goes to list add employee page
-                    Employee myWindow = new Employee(); // connects to class Employee.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class Employee.java
 
                 }
 
@@ -272,7 +272,7 @@ public class MainApplication extends JFrame {
                 if(e.getSource()==bulkImportOrdersButton) {
                     dispose(); // gets rid of main page and goes to list add Bulk import of order page
                     ImportOrders myWindow = new ImportOrders(); // connects to class ImportOrders.java
-
+                    myWindow.load();
                 }
 
                 bulkImportOrders();
@@ -395,7 +395,7 @@ public class MainApplication extends JFrame {
         // Connect to the MySQL database
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/classicmodels", "username", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/classicmodels", "root", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }

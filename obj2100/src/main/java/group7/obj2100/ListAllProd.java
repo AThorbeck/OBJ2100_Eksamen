@@ -136,7 +136,7 @@ static ArrayList<products> getProducts(){
     return products;
 }
 
-    public static void main(String[] args) {
+    public void start() {
         JTable table = new JTable();
         ArrayList<products> products = getProducts();
 
