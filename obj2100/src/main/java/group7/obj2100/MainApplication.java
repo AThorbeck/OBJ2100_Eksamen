@@ -106,6 +106,42 @@ public class MainApplication extends JFrame {
         });
         databaseMenu.add(addModifyEmployeeMenuItem);
 
+       
+        
+        // NEW11111111111111111
+
+        JMenuItem listAllProductsMenuItem = new JMenuItem("List all products");
+        listAllProductsMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllProductsMenuItem) {
+                   // dispose(); // gets rid of main page and goes to list all products page
+                    ListAllProd myWindow = new ListAllProd(); // connects to class ListAllProd.java
+                }
+                listAllProducts();
+            }
+        });
+        databaseMenu.add(listAllProductsMenuItem);
+
+
+
+        
+
+        JMenuItem filterOfficeCountryMenuItem = new JMenuItem("Filter and present offices from a country");
+        filterOfficeCountryMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                filterOfficeCountry();
+            }
+        });
+        databaseMenu.add(filterOfficeCountryMenuItem);
+
+
+        // NEW11111111111111111111111
+        
+        
+        
+        
+        
         // Help menu
         JMenu helpMenu = new JMenu("Help");
         menuBar.add(helpMenu);
@@ -364,6 +400,15 @@ public class MainApplication extends JFrame {
     }
 
     private void addModifyEmployee() {
+        // Legg til funksjon her
+    }
+    
+    
+    private void listAllProducts() {  /// 222222222222222
+        // Legg til funksjon her
+    }
+
+    private void filterOfficeCountry() {  ///22222222222222
         // Legg til funksjon her
     }
 
