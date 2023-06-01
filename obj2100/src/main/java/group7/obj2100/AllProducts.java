@@ -1,3 +1,4 @@
+/*
 package group7.obj2100;
 
 import javax.swing.*;
@@ -49,3 +50,4 @@ public class AllProducts extends JFrame implements ActionListener {
         }
 }
 }
+*/ 
