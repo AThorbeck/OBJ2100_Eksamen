@@ -186,7 +186,7 @@ public class MainApplication extends JFrame {
                     ListAllProd myWindow = new ListAllProd(); // connects to class AllProducts.java
                 }
 
-                listAllProducts();
+                listAllProd();
             }
 
         });
