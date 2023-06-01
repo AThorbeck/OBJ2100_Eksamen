@@ -281,8 +281,8 @@ public class MainApplication extends JFrame {
                     dialog.setVisible(true); // connects to class Employee.java
         
 
+                });
                 }
-
                 addEmployee();
             }
 
