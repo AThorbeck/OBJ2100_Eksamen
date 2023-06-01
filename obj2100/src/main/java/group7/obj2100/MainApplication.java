@@ -271,11 +271,11 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==bulkImportOrdersButton) {
                     dispose(); // gets rid of main page and goes to list add Bulk import of order page
-                    ImportOrders myWindow = new ImportOrders(); // connects to class ImportOrders.java
+                    BulkImport myWindow = new BulkImport(); // connects to class BulkImport.java
                     myWindow.load();
                 }
 
-                bulkImportOrders();
+                bulkImport();
             }
 
         });
