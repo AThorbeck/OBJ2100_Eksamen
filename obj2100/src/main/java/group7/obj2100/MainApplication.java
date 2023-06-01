@@ -116,6 +116,7 @@ public class MainApplication extends JFrame {
 
                 if(e.getSource()==listAllProductsMenuItem) {
                    // dispose(); // gets rid of main page and goes to list all products page
+                    ListAllProd myWindow = new ListAllProd();
                     myWindow.start(); // connects to class ListAllProd.java
                 }
                 listAllProducts();
