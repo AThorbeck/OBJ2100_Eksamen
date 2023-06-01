@@ -1,4 +1,4 @@
-package Group7.EksamenMai;
+package group7.obj2100;
 
 import javax.swing.*;
 import java.awt.*;
@@ -132,6 +132,10 @@ public class EmployeeFormDialog extends JDialog {
 
         pack();
         setLocationRelativeTo(parent);
+    }
+
+    public EmployeeFormDialog() {
+
     }
 
     private void saveEmployeeData() {
