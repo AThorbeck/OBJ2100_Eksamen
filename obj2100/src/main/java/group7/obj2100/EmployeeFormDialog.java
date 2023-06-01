@@ -134,6 +134,8 @@ public class EmployeeFormDialog extends JDialog {
         setLocationRelativeTo(parent);
     }
 
+
+
     public EmployeeFormDialog() {
 
     }
@@ -255,6 +257,7 @@ public class EmployeeFormDialog extends JDialog {
             e.printStackTrace();
         }
     }
+
 
 
 }
