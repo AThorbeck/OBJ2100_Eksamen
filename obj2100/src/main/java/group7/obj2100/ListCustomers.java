@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Writing_of_customers extends JPanel
+public class ListCustomers extends JPanel
 {
 	static String cityString = "City";
 	static String stateString = "State";	
