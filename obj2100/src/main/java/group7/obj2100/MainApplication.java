@@ -465,8 +465,16 @@ public class MainApplication extends JFrame {
         // Legg til funksjon her
     }
 
-    private void testDatabaseConnection() {
-        // Legg til funksjon her
+  private void testDatabaseConnection() {
+        Object TestDatabaseCon = null;
+        if (Objects.equals(TestDatabaseCon, true)) {
+            JOptionPane.showMessageDialog(null, "Great sucess!!!");
+            
+
+        } else {
+            JOptionPane.showMessageDialog(null, "FUCK!!!");
+        }
+
     }
 
     private void executeSQLQuery() {
