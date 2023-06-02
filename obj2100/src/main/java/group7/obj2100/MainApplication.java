@@ -4,6 +4,9 @@ package group7.obj2100;
 // Worked on by student: 7127
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,43 +14,69 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Author: Exam Group 7
- * Purpose: The purpose of this app is to create a simple GUI window with different functions that is connected to MySQL
- * Date: 30.05.2023 - 02.06.2023
- */
-public class MainApplication extends JFrame {
+
+public class MainApplication {
 
 
-    private Connection databaseConnection;
+    public Connection databaseConnection;
+
+
+    public static void main(String[] args) {
+
+        new MainApplication();
+
+    }
 
 
 
     public MainApplication() {
-        super("OBJ2100 Exam 2023 - Group 7");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        setSize(500, 500);
+
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
+            public void run() {
+
+                try {
+
+                    javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+
+                    javax.swing.JFrame frame = new javax.swing.JFrame("Testing");
+
+                    frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+
+                    frame.setJMenuBar(createMenuBar()); // Add this line
+
+                    frame.add(new framePane());
+
+                    frame.pack();
+
+                    frame.setLocationRelativeTo(null);
+
+                    frame.setVisible(true);
+
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+
+                    ex.printStackTrace();
+
+                }
+
+            }
+
+        });
+
+    }
 
 
-        super.getContentPane().setBackground(new Color(234, 234, 234)); // background color of frame (gray color)
 
+    private JMenuBar createMenuBar() {
 
-        // setMaximizedBounds(new Rectangle(900, 500)); // sets max size
-        // Border border = BorderFactory.createLineBorder(Color.black, 3); // adds black border
-
-        // Create main menu
         JMenuBar menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
-        menuBar.setBackground(new Color(255, 255, 255)); // sets color of Menu bar (white color)
 
 
-        // File menu
+
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-
-        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");  // Select folder menu button
+        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder"); // Select folder menu button
         selectFolderMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==selectFolderMenuItem) {
@@ -59,12 +88,10 @@ public class MainApplication extends JFrame {
                 selectFolder();
             }
         });
-
         fileMenu.add(selectFolderMenuItem);
 
-       // write customers to the file
-        
-        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file");
+        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to File");
+
         writeCustomersMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==writeCustomersMenuItem) {
@@ -78,44 +105,58 @@ public class MainApplication extends JFrame {
 
         });
         fileMenu.add(writeCustomersMenuItem);
-        
-        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");  
+
+
+        JMenuItem bulkImportMenuItem = new JMenuItem("Import bulk to Database");
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bulkImportOrders();
             }
         });
-        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database"); // bulkInport menu button
 
-        bulkImportMenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
 
-                if(e.getSource()==bulkImportMenuItem) {
-                   BulkImport myWindow = new BulkImport();
-                    myWindow.runBulk();
-                }
-
-                bulkImportOrders();
-            }
-        });
         fileMenu.add(bulkImportMenuItem);
 
-        // Database menu, sets test database connection button
+
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        exitMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        fileMenu.add(exitMenuItem);
+
+
+
+        fileMenu.add(selectFolderMenuItem);
+
+        fileMenu.add(writeCustomerToFileMenuItem);
+
+        fileMenu.add(importBulkToDatabaseMenuItem);
+
+        fileMenu.add(exit);
+
+        menuBar.add(fileMenu);
+
+
+
         JMenu databaseMenu = new JMenu("Database");
         menuBar.add(databaseMenu);
 
-        JMenuItem testConnectionMenuItem = new JMenuItem("Test Database Connection");  
+
+        JMenuItem testDatabaseConnectionMenuItem = new JMenuItem("Test Database Connection");
         testConnectionMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 testDatabaseConnection();
             }
         });
         databaseMenu.add(testConnectionMenuItem);
-        
+
         // EXECUTE sql query menu button
 
-        JMenuItem executeQueryMenuItem = new JMenuItem("Execute SQL Query");
 
+
+        JMenuItem executeSQLQueryMenuItem = new JMenuItem("Execute SQL Query");
         executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SQLQueryExecutor myWindow = new SQLQueryExecutor();
@@ -125,12 +166,9 @@ public class MainApplication extends JFrame {
         });
         databaseMenu.add(executeQueryMenuItem);
 
-       
-        
-        
-        // Add modify employee
-        
-        JMenuItem addModifyEmployeeMenuItem = new JMenuItem("Add/Modify Employee");
+
+
+        JMenuItem addModifyEmployeeMenuItem = new JMenuItem("Add / modify Employee");
         addModifyEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -143,21 +181,15 @@ public class MainApplication extends JFrame {
             }
         });
         databaseMenu.add(addModifyEmployeeMenuItem);
-        
-        
-        
-       
 
-       
-        
-        // list all products
+
 
         JMenuItem listAllProductsMenuItem = new JMenuItem("List all products");
         listAllProductsMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==listAllProductsMenuItem) {
-                   // dispose(); // gets rid of main page and goes to list all products page
+                    // dispose(); // gets rid of main page and goes to list all products page
                     ListAllProd myWindow = new ListAllProd();
                     myWindow.start(); // connects to class ListAllProd.java
                 }
@@ -168,9 +200,8 @@ public class MainApplication extends JFrame {
 
 
 
-        
 
-        JMenuItem filterOfficeCountryMenuItem = new JMenuItem("Filter and present offices from a country");
+        JMenuItem filterOfficesMenuItem = new JMenuItem("Filter and present offices from a country");
         filterOfficeCountryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 filterOfficeCountry();
@@ -179,45 +210,11 @@ public class MainApplication extends JFrame {
         databaseMenu.add(filterOfficeCountryMenuItem);
 
 
-        
-        
-        
-        
-        
-        
-        // Help menu
-        JMenu helpMenu = new JMenu("Help");
-        menuBar.add(helpMenu);
 
-        JMenuItem aboutMenuItem = new JMenuItem("About");
-        aboutMenuItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showAboutDialog();
-            }
-        });
-        helpMenu.add(aboutMenuItem);
+        databaseMenu.add(testDatabaseConnectionMenuItem);
+        JButton databaseButton = new JButton("Test database connection");
 
 
-        // Set layout
-        setLayout(new FlowLayout());
-
-        // Add buttons or other components to the main view
-        JButton selectFolderButton = new JButton("Select Folder");
-// selectFolderButton.setBounds(200,100,100,50);
-        selectFolderButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-
-                selectFolder();
-            }
-
-        });
-
-        add(selectFolderButton);
-
-
-// test database connection 
-        JButton databaseButton = new JButton("Test database connection"); 
 
         databaseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -226,66 +223,322 @@ public class MainApplication extends JFrame {
         });
         add(databaseButton);
 
-        // test execute sql query 
 
-        JButton sqlButton = new JButton("Execute SQL query"); 
-
-        sqlButton.addActionListener(new ActionListener() {
+        databaseMenu.add(executeSQLQueryMenuItem);
+        executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose(); // gets rid of main page and goes to SQLExecutor
                 SQLQueryExecutor myWindow = new SQLQueryExecutor();
                 myWindow.runSqlQueryExecutor();
-            }
-        });
-        add(sqlButton);
-
-        // about the app
-        JButton aboutButton = new JButton("About the application"); // test database connection button
-        aboutButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                about();
 
             }
         });
-        add(aboutButton);
+        databaseMenu.add(executeQueryMenuItem);
+
+        JButton databaseButton = new JButton("Test database connection");
 
 
-      //  setLayout(new FlowLayout());
 
-        // Add buttons or other components to the main view
-        
-        // list all products
-        JButton listAllProductsButton = new JButton("List all products");
+        databaseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                database();
+            }
+        });
+        add(databaseButton);
 
-        listAllProductsButton.addActionListener(new ActionListener() {
-
+        databaseMenu.add(addModifyEmployeeMenuItem);
+        JMenuItem addModifyEmployeeMenuItem = new JMenuItem("Add/Modify Employee");
+        addModifyEmployeeMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
+                if(e.getSource()==addModifyEmployeeMenuItem) {
 
-                if(e.getSource()==listAllProductsButton) {
-                    dispose(); // gets rid of main page and goes to list all products page
-                    ListAllProd myWindow = new ListAllProd();
-                    myWindow.start();// connects to class AllProducts.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class ListAllProd.java
+                    myWindow.runEmployeeDialog();
                 }
+                addModifyEmployee();
+            }
+        });
 
+
+        databaseMenu.add(listAllProductsMenuItem);
+        listAllProductsMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllProductsMenuItem) {
+                    // dispose(); // gets rid of main page and goes to list all products page
+                    ListAllProd myWindow = new ListAllProd();
+                    myWindow.start(); // connects to class ListAllProd.java
+                }
                 listAllProducts();
             }
+        });
+        databaseMenu.add(listAllProductsMenuItem);
+
+
+        databaseMenu.add(filterOfficeCountryMenuItem);
+        filterOfficeCountryMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                filterOfficeCountry();
+            }
+        });
+        databaseMenu.add(filterOfficeCountryMenuItem);
+
+
+        menuBar.add(databaseMenu);
+
+
+
+
+
+        JMenu helpMenu = new JMenu("Help");
+        menuBar.add(helpMenu);
+
+
+        JMenuItem aboutMenuItem = new JMenuItem("About");
+        aboutMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showAboutDialog();
+            }
+        });
+
+        helpMenu.add(aboutMenuItem);
+
+        menuBar.add(helpMenu);
+
+
+
+        return menuBar;
+
+    }
+
+    private void bulkImportOrders() {
+
+    }
+
+    private void writeCustomersToFile() {
+    }
+
+    private void selectFolder() {
+    }
+
+}
+
+class framePane extends JPanel {
+
+
+
+    private FileAccessSettingsPane fileAccessSettingsPane;
+
+    private ListCustomersPane ListCustomersPane;
+
+    private ReportsAndUpdatesPane reportsAndUpdatesPane;
+
+    private ActionPane actionPane;
+
+
+
+    public framePane() {
+
+        setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+
+        gbc.weightx = 1;
+
+        gbc.weighty = 0.25;
+
+        gbc.anchor = GridBagConstraints.WEST;
+
+        gbc.fill = GridBagConstraints.BOTH;
+
+        gbc.insets = new Insets(4, 4, 4, 4);
+
+
+
+        add((fileAccessSettingsPane = new FileAccessSettingsPane()), gbc);
+
+        gbc.gridy++;
+
+        add((ListCustomersPane = new ListCustomersPane()), gbc);
+
+        gbc.gridy++;
+
+        add((reportsAndUpdatesPane = new ReportsAndUpdatesPane()), gbc);
+
+
+
+        gbc.gridy = 0;
+
+        gbc.gridx++;
+
+        gbc.gridheight = GridBagConstraints.REMAINDER;
+
+        gbc.fill = GridBagConstraints.VERTICAL;
+
+        gbc.weighty = 1;
+
+        gbc.weightx = 0;
+
+        add((actionPane = new ActionPane()), gbc);
+
+    }
+
+}
+
+
+class FileAccessSettingsPane extends JPanel {
+
+    private JButton changeFolderButton;
+
+
+
+    public FileAccessSettingsPane() {
+
+        setLayout(new GridBagLayout());
+
+        setBorder(new CompoundBorder(new TitledBorder("File Access Settings"), new EmptyBorder(12, 0, 0, 0)));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        gbc.insets = new Insets(0, 0, 0, 0);
+
+
+
+        add((changeFolderButton = new JButton("Change Folder")), gbc);
+
+    }
+
+}
+
+class ListCustomersPane extends JPanel {
+
+
+
+    private JButton writeCustomerListButton;
+
+
+
+    public ListCustomersPane() {
+
+        setLayout(new GridBagLayout());
+
+        setBorder(new CompoundBorder(new TitledBorder("List Customers"), new EmptyBorder(12, 0, 0, 0)));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        gbc.insets = new Insets(0, 0, 0, 0);
+
+
+
+        add((writeCustomerListButton = new JButton("Write customer list that match selected criteria into file...")), gbc);
+
+        writeCustomerToFileButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==writeCustomerToFileButton) {
+                    // dispose(); // gets rid of main page and goes to list write customer into file page
+                    CustomerWriter myWindow = new CustomerWriter();// connects to class CustomerWriter.java
+                    myWindow.runCustomerWriter();
+                }
+
+                writeCustomersToFile();
+            }
 
         });
 
-        add(listAllProductsButton);
+        add(writeCustomerToFileButton);
 
-       
+    }
+
+}
+
+class ReportsAndUpdatesPane extends JPanel {
 
 
-       
 
-      //  setLayout(new FlowLayout());
-        
-         // List all offices
+    private JButton AddorModifyEmployeeButton;
 
-        JButton listAllOfficesButton = new JButton("List all offices");
+    private JButton ListAllProductsButton;
+
+    private JButton ListAllOfficesButton;
+
+    private JButton BulkImportButton;
+
+
+
+    public ReportsAndUpdatesPane() {
+
+        setLayout(new GridBagLayout());
+
+        setBorder(new CompoundBorder(new TitledBorder("Reports and Updates"), new EmptyBorder(12, 0, 0, 0)));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        gbc.insets = new Insets(0, 0, 0, 0);
+
+
+
+        add((AddorModifyEmployeeButton = new JButton("Add or modify employee")), gbc);
+
+        gbc.gridx++;
+
+        addModifyEmployeeMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==addModifyEmployeeMenuItem) {
+
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class ListAllProd.java
+                    myWindow.runEmployeeDialog();
+                }
+                addModifyEmployee();
+            }
+        });
+        databaseMenu.add(addModifyEmployeeMenuItem);
+
+        add((ListAllProductsButton = new JButton("List all products")), gbc);
+
+        gbc.gridx++;
+
+        listAllProductsMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource()==listAllProductsMenuItem) {
+                    // dispose(); // gets rid of main page and goes to list all products page
+                    ListAllProd myWindow = new ListAllProd();
+                    myWindow.start(); // connects to class ListAllProd.java
+                }
+                listAllProducts();
+            }
+        });
+        databaseMenu.add(listAllProductsMenuItem);
+
+
+        add((ListAllOfficesButton = new JButton("List all offices")), gbc);
+
+        gbc.gridx++;
 
         listAllOfficesButton.addActionListener(new ActionListener() {
 
@@ -305,57 +558,7 @@ public class MainApplication extends JFrame {
         add(listAllOfficesButton); // adds button
 
 
-       
-
-
-
-
-
-
-
-        // addEmployee
-
-
-        JButton EmployeeButton = new JButton("Add or modify Employee");
-
-        EmployeeButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-
-                if(e.getSource()==EmployeeButton) {
-
-                    JFrame frame = new JFrame();
-
-                    dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class EmployeeFormDialog.java
-                        myWindow.runEmployeeDialog();
-        
-
-
-                }
-                addEmployee();
-            }
-
-        });
-
-        add(EmployeeButton);
-
-
-
-        
-
-
-
-
-
-
-
-
-
-        // Bulk import of orders
-
-
-        JButton bulkImportOrdersButton = new JButton("Bulk import of orders");
+        add((BulkImportButton = new JButton("Bulk import of orders")), gbc);
 
         bulkImportOrdersButton.addActionListener(new ActionListener() {
 
@@ -372,73 +575,86 @@ public class MainApplication extends JFrame {
 
         });
 
- // Bulk import of orders
+        // Bulk import of orders
         add(bulkImportOrdersButton);
-        
-        
-        
-       
+
+    }
+
+}
+
+class ActionPane extends JPanel {
+
+    private JButton testDatabaseConnection;
+
+    private JButton executeSQLQuery;
+
+    private JButton aboutTheApp;
+
+    private JButton exitButton;
 
 
 
-// change folder
+    public ActionPane() {
 
-        JButton changeFolderButton = new JButton("Change folder");
+        setLayout(new GridBagLayout());
 
-        changeFolderButton.addActionListener(new ActionListener() {
+        setBorder(new CompoundBorder(new TitledBorder("Menu"), new EmptyBorder(12, 12, 12, 12)));
 
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+
+        gbc.gridy = 0;
+
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.weightx = 1;
+
+        gbc.insets = new Insets(4, 4, 4, 4);
+
+
+
+        add((testDatabaseConnection = new JButton("Test database connection")), gbc);
+
+        gbc.gridy++;
+
+        databaseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                database();
+            }
+        });
+        add(databaseButton);
+
+        add((executeSQLQuery = new JButton("Execute SQL Query")), gbc);
+
+        gbc.gridy++;
+
+        sqlButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // gets rid of main page and goes to SQLExecutor
+                SQLQueryExecutor myWindow = new SQLQueryExecutor();
+                myWindow.runSqlQueryExecutor();
+            }
+        });
+        add(sqlButton);
+
+
+        add((aboutTheApp = new JButton("About the app")), gbc);
+
+        gbc.gridy++;
+
+        aboutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                if(e.getSource()==changeFolderButton) {
-                   // dispose(); // gets rid of main page and goes to list change folder page
-                    FolderSelection myWindow = new FolderSelection(); // connects to class FolderSelection.java
-                    myWindow.loadFolder();
-                }
+                about();
 
-                selectFolder();
             }
-
         });
+        add(aboutButton);
 
-        add(changeFolderButton);
-
-
-        
-        
-        
-        
-        //write customer to file
-
-
-        JButton writeCustomerToFileButton = new JButton("Write customer list that match selected criteria into file...");
-
-        writeCustomerToFileButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-
-                if(e.getSource()==writeCustomerToFileButton) {
-                    // dispose(); // gets rid of main page and goes to list write customer into file page
-                    CustomerWriter myWindow = new CustomerWriter();// connects to class CustomerWriter.java
-                    myWindow.runCustomerWriter();
-                }
-
-                writeCustomersToFile();
-            }
-
-        });
-
-        add(writeCustomerToFileButton);
-
-
-        
-
-
-
-
-// exit button, to exit page
-
-        JButton exitButton = new JButton("Exit");  // exit button
-
+        add((exitButton = new JButton("Exit")), gbc);
 
         exitButton.addActionListener(new ActionListener()
         {
@@ -455,15 +671,13 @@ public class MainApplication extends JFrame {
         setVisible(true);
     }
 
-    private void bulkImport() {
-
     }
 
-
-    private void selectFolder() {
-        // add function here
-    }
     
+
+
+    
+
     // Database
     private void database() {
         // function here
@@ -479,12 +693,10 @@ public class MainApplication extends JFrame {
         }
     }
 
-   
-    
-    
-    private void sql() {
 
-    }
+
+
+    
 
     private void about() {
         JOptionPane.showMessageDialog(this, "This is a GUI application made by group 7."); // pop up button of about
@@ -497,22 +709,18 @@ public class MainApplication extends JFrame {
 
     }
 
-    private void writeCustomersToFile() {
-        // write function here
-    }
+   
 
-    private void bulkImportOrders() {
-        
-    }
+    
 
     // test database connection, shows messages based on if youre connected or not
-  private void testDatabaseConnection() {
+    private void testDatabaseConnection() {
         Object TestDatabaseCon = null;
         if (TestDatabaseCon != null) {
 
 
             JOptionPane.showMessageDialog(null, "Database connection unsuccessful");
-            
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Database connection successful");
@@ -520,22 +728,12 @@ public class MainApplication extends JFrame {
 
     }
 
-    private void executeSQLQuery() {
-        
-    }
+   
 
-    private void addModifyEmployee() {
-       
-    }
     
-    
-    private void listAllProducts() {  
-         
-    }
 
-    private void filterOfficeCountry() {  
-        
-    }
+
+    
 
     private void showAboutDialog() {
         // Dialog when clicking on help.
@@ -543,16 +741,9 @@ public class MainApplication extends JFrame {
     }
 
 
-    private void listAllOffices() {
-
-
-
-
-    }
-
-    private void addEmployee() {
     
-    }
+
+   
 
 
 
@@ -569,25 +760,6 @@ public class MainApplication extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Initialize the application
         MainApplication application = new MainApplication();
         application.databaseConnection = connection;
@@ -596,4 +768,6 @@ public class MainApplication extends JFrame {
 
     }
 }
+
+
 
