@@ -50,6 +50,12 @@ public class MainApplication extends JFrame {
         JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");  // Select folder menu button
         selectFolderMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==selectFolderMenuItem) {
+                    // dispose(); // gets rid of main page and goes to list change folder page
+                    FolderSelection myWindow = new FolderSelection(); // connects to class FolderSelection.java
+                    myWindow.loadFolder();
+                }
+
                 selectFolder();
             }
         });
