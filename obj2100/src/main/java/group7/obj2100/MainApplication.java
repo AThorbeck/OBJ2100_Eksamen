@@ -221,10 +221,10 @@ public class MainApplication {
                 database();
             }
         });
-        add(databaseButton);
 
 
-        databaseMenu.add(executeSQLQueryMenuItem);
+
+        databaseMenu.add(executeQueryMenuItem);
         executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SQLQueryExecutor myWindow = new SQLQueryExecutor();
@@ -311,8 +311,10 @@ public class MainApplication {
 
     }
 
+
+
     private void database() {
-        
+
     }
 
     private void filterOfficeCountry() {
@@ -464,7 +466,7 @@ class ListCustomersPane extends JPanel {
 
 
 
-        add((writeCustomerListButton = new JButton("Write customer list that match selected criteria into file...")), gbc);
+        add((writeCustomerToFileButton = new JButton("Write customer list that match selected criteria into file...")), gbc);
 
         writeCustomerToFileButton.addActionListener(new ActionListener() {
 
@@ -482,6 +484,10 @@ class ListCustomersPane extends JPanel {
         });
 
         add(writeCustomerToFileButton);
+
+    }
+
+    private void writeCustomersToFile() {
 
     }
 
@@ -523,7 +529,7 @@ class ReportsAndUpdatesPane extends JPanel {
 
         gbc.gridx++;
 
-        addModifyEmployeeMenuItem.addActionListener(new ActionListener() {
+        AddorModifyEmployeeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==addModifyEmployeeMenuItem) {
@@ -595,6 +601,14 @@ class ReportsAndUpdatesPane extends JPanel {
 
         // Bulk import of orders
         add(bulkImportOrdersButton);
+
+    }
+
+    private void listAllOffices() {
+
+    }
+
+    private void listAllProducts() {
 
     }
 
