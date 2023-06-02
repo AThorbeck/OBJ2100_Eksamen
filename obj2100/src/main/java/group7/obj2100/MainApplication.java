@@ -62,12 +62,20 @@ public class MainApplication extends JFrame {
 
         fileMenu.add(selectFolderMenuItem);
 
-        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file"); // Select write customer menu button
+       // write customers to the file
+        
+        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file");
         writeCustomersMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==writeCustomersMenuItem) {
+
+                    CustomerWriter myWindow = new CustomerWriter();
+                    myWindow.runCustomerWriter();
+                }
+
                 writeCustomersToFile();
             }
-
+            }
         });
         fileMenu.add(writeCustomersMenuItem);
         
