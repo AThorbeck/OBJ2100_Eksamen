@@ -47,7 +47,7 @@ public class MainApplication extends JFrame {
         menuBar.add(fileMenu);
 
 
-        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");  // Select folder meny button
+        JMenuItem selectFolderMenuItem = new JMenuItem("Select Folder");  // Select folder menu button
         selectFolderMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 selectFolder();
@@ -56,7 +56,7 @@ public class MainApplication extends JFrame {
 
         fileMenu.add(selectFolderMenuItem);
 
-        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file"); // Select write customer meny button
+        JMenuItem writeCustomersMenuItem = new JMenuItem("Write Customers to the file"); // Select write customer menu button
         writeCustomersMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 writeCustomersToFile();
@@ -64,13 +64,13 @@ public class MainApplication extends JFrame {
         });
         fileMenu.add(writeCustomersMenuItem);
         
-        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");
+        JMenuItem bulkImportMenuItem = new JMenuItem("Import Bulk to database");  
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bulkImportOrders();
             }
         });
-        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database"); // bulkInport meny button
+        JMenuItem BulkImportMenuItem = new JMenuItem("Import Bulk to database"); // bulkInport menu button
 
         bulkImportMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -85,22 +85,22 @@ public class MainApplication extends JFrame {
         });
         fileMenu.add(bulkImportMenuItem);
 
-        // Database menu
+        // Database menu, sets test database connection button
         JMenu databaseMenu = new JMenu("Database");
         menuBar.add(databaseMenu);
 
-        JMenuItem testConnectionMenuItem = new JMenuItem("Test Database Connection");
+        JMenuItem testConnectionMenuItem = new JMenuItem("Test Database Connection");  
         testConnectionMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 testDatabaseConnection();
             }
         });
         databaseMenu.add(testConnectionMenuItem);
+        
+        // EXECUTE sql query menu button
 
         JMenuItem executeQueryMenuItem = new JMenuItem("Execute SQL Query");
 
-       // EXECUTE
-        
         executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SQLQueryExecutor myWindow = new SQLQueryExecutor();
@@ -131,11 +131,11 @@ public class MainApplication extends JFrame {
         
         
         
-        // add modify employee
+       
 
        
         
-        // NEW11111111111111111
+        // list all products
 
         JMenuItem listAllProductsMenuItem = new JMenuItem("List all products");
         listAllProductsMenuItem.addActionListener(new ActionListener() {
@@ -164,7 +164,7 @@ public class MainApplication extends JFrame {
         databaseMenu.add(filterOfficeCountryMenuItem);
 
 
-        // NEW11111111111111111111111
+        
         
         
         
@@ -201,8 +201,8 @@ public class MainApplication extends JFrame {
         add(selectFolderButton);
 
 
-
-        JButton databaseButton = new JButton("Test database connection"); // test database connection button
+// test database connection 
+        JButton databaseButton = new JButton("Test database connection"); 
 
         databaseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -211,8 +211,9 @@ public class MainApplication extends JFrame {
         });
         add(databaseButton);
 
+        // test execute sql query 
 
-        JButton sqlButton = new JButton("Execute SQL query"); // test database connection button
+        JButton sqlButton = new JButton("Execute SQL query"); 
 
         sqlButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -223,6 +224,7 @@ public class MainApplication extends JFrame {
         });
         add(sqlButton);
 
+        // about the app
         JButton aboutButton = new JButton("About the application"); // test database connection button
         aboutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -233,10 +235,12 @@ public class MainApplication extends JFrame {
         });
         add(aboutButton);
 
-// list all products
+
       //  setLayout(new FlowLayout());
 
         // Add buttons or other components to the main view
+        
+        // list all products
         JButton listAllProductsButton = new JButton("List all products");
 
         listAllProductsButton.addActionListener(new ActionListener() {
@@ -257,12 +261,14 @@ public class MainApplication extends JFrame {
 
         add(listAllProductsButton);
 
-        // list all products
+       
 
 
-        // List all offices
+       
 
       //  setLayout(new FlowLayout());
+        
+         // List all offices
 
         JButton listAllOfficesButton = new JButton("List all offices");
 
@@ -281,10 +287,10 @@ public class MainApplication extends JFrame {
 
         });
 
-        add(listAllOfficesButton);
+        add(listAllOfficesButton); // adds button
 
 
-        // list all offices
+       
 
 
 
@@ -306,8 +312,7 @@ public class MainApplication extends JFrame {
                     JFrame frame = new JFrame();
 
                     dispose(); // gets rid of main page and goes to list add employee page
-                    EmployeeFormDialog myWindow = new EmployeeFormDialog();
-                     // connects to class Employee.java
+                    EmployeeFormDialog myWindow = new EmployeeFormDialog(); // connects to class EmployeeFormDialog.java
                         myWindow.runEmployeeDialog();
         
 
@@ -322,7 +327,7 @@ public class MainApplication extends JFrame {
 
 
 
-        // addEmployee
+        
 
 
 
@@ -352,11 +357,7 @@ public class MainApplication extends JFrame {
 
         });
 
-
-
-
-
-        // Bulk import of orders
+ // Bulk import of orders
         add(bulkImportOrdersButton);
         
         
@@ -374,8 +375,8 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==changeFolderButton) {
-                   // dispose(); // gets rid of main page and goes to list all products page
-                    FolderSelection myWindow = new FolderSelection(); // connects to class ListAllProd.java
+                   // dispose(); // gets rid of main page and goes to list change folder page
+                    FolderSelection myWindow = new FolderSelection(); // connects to class FolderSelection.java
                     myWindow.loadFolder();
                 }
 
@@ -387,7 +388,7 @@ public class MainApplication extends JFrame {
         add(changeFolderButton);
 
 
-        // change folder
+        
         
         
         
@@ -401,7 +402,7 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if(e.getSource()==writeCustomerToFileButton) {
-                    // dispose(); // gets rid of main page and goes to list all products page
+                    // dispose(); // gets rid of main page and goes to list write customer into file page
                     CustomerWriter myWindow = new CustomerWriter();// connects to class CustomerWriter.java
                     myWindow.runCustomerWriter();
                 }
@@ -414,19 +415,15 @@ public class MainApplication extends JFrame {
         add(writeCustomerToFileButton);
 
 
-        // write customer to file
+        
 
 
 
 
-
+// exit button, to exit page
 
         JButton exitButton = new JButton("Exit");  // exit button
-// HERE
 
-
-
-// HERE
 
         exitButton.addActionListener(new ActionListener()
         {
@@ -449,12 +446,12 @@ public class MainApplication extends JFrame {
 
 
     private void selectFolder() {
-        // Legg til funksjon her
+        // add function here
     }
     
     // Database
     private void database() {
-        
+        // function here
 
         Object TestDatabaseCon = null;
         if (TestDatabaseCon != null) {
@@ -475,7 +472,7 @@ public class MainApplication extends JFrame {
     }
 
     private void about() {
-        JOptionPane.showMessageDialog(this, "This is a GUI application made by group 7.");
+        JOptionPane.showMessageDialog(this, "This is a GUI application made by group 7."); // pop up button of about
     }
 
 
@@ -486,13 +483,14 @@ public class MainApplication extends JFrame {
     }
 
     private void writeCustomersToFile() {
-        // Legg til funksjon her
+        // write function here
     }
 
     private void bulkImportOrders() {
-        // Legg til funksjon her
+        
     }
 
+    // test database connection, shows messages based on if youre connected or not
   private void testDatabaseConnection() {
         Object TestDatabaseCon = null;
         if (TestDatabaseCon != null) {
@@ -508,20 +506,20 @@ public class MainApplication extends JFrame {
     }
 
     private void executeSQLQuery() {
-        // Legg til funksjon her
+        
     }
 
     private void addModifyEmployee() {
-        // Legg til funksjon her
+       
     }
     
     
-    private void listAllProducts() {  /// 222222222222222
-        // Legg til funksjon her
+    private void listAllProducts() {  
+         
     }
 
-    private void filterOfficeCountry() {  ///22222222222222
-        // Legg til funksjon her
+    private void filterOfficeCountry() {  
+        
     }
 
     private void showAboutDialog() {
