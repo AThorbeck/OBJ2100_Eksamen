@@ -61,6 +61,7 @@ public class MainApplication extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 writeCustomersToFile();
             }
+
         });
         fileMenu.add(writeCustomersMenuItem);
         
