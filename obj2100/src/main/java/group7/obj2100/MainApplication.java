@@ -75,7 +75,7 @@ public class MainApplication extends JFrame {
 
                 writeCustomersToFile();
             }
-            }
+
         });
         fileMenu.add(writeCustomersMenuItem);
         
