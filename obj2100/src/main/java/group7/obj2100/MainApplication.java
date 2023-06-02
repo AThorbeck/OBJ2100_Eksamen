@@ -130,11 +130,11 @@ public class MainApplication {
 
         fileMenu.add(selectFolderMenuItem);
 
-        fileMenu.add(writeCustomerToFileMenuItem);
+        fileMenu.add(writeCustomersMenuItem);
 
-        fileMenu.add(importBulkToDatabaseMenuItem);
+        fileMenu.add(bulkImportMenuItem);
 
-        fileMenu.add(exit);
+        fileMenu.add(exitMenuItem);
 
         menuBar.add(fileMenu);
 
@@ -144,7 +144,7 @@ public class MainApplication {
         menuBar.add(databaseMenu);
 
 
-        JMenuItem testDatabaseConnectionMenuItem = new JMenuItem("Test Database Connection");
+        JMenuItem testConnectionMenuItem = new JMenuItem("Test Database Connection");
         testConnectionMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 testDatabaseConnection();
@@ -156,7 +156,7 @@ public class MainApplication {
 
 
 
-        JMenuItem executeSQLQueryMenuItem = new JMenuItem("Execute SQL Query");
+        JMenuItem executeQueryMenuItem = new JMenuItem("Execute SQL Query");
         executeQueryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SQLQueryExecutor myWindow = new SQLQueryExecutor();
@@ -201,7 +201,7 @@ public class MainApplication {
 
 
 
-        JMenuItem filterOfficesMenuItem = new JMenuItem("Filter and present offices from a country");
+        JMenuItem filterOfficeCountryMenuItem = new JMenuItem("Filter and present offices from a country");
         filterOfficeCountryMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 filterOfficeCountry();
@@ -211,7 +211,7 @@ public class MainApplication {
 
 
 
-        databaseMenu.add(testDatabaseConnectionMenuItem);
+        databaseMenu.add(testConnectionMenuItem);
         JButton databaseButton = new JButton("Test database connection");
 
 
@@ -308,6 +308,24 @@ public class MainApplication {
 
 
         return menuBar;
+
+    }
+
+    private void database() {
+        
+    }
+
+    private void filterOfficeCountry() {
+    }
+
+    private void listAllProducts() {
+    }
+
+    private void addModifyEmployee() {
+
+    }
+
+    private void testDatabaseConnection() {
 
     }
 
