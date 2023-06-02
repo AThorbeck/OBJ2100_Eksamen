@@ -12,8 +12,8 @@ import java.sql.*;
 public class SQLQueryExecutor {
     // Database connection using student as username and password, and the URL is connected to the database table classicmodels.
     private static final String URL = "jdbc:mysql://localhost:3306/classicmodels";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String USERNAME = "student";
+    private static final String PASSWORD = "student";
 
     private static Connection conn;
     private static Statement statement;

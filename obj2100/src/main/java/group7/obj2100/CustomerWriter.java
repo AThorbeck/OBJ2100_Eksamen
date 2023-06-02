@@ -12,8 +12,8 @@ public class CustomerWriter {
 
     // Database connection. Through jdbc driver we are able to connect to the database.
     private static final String DB_URL = "jdbc:mysql://localhost:3306/classicmodels";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_USERNAME = "student";
+    private static final String DB_PASSWORD = "student";
     
     // The different criterias that can be selected from the dropdown list. 
     private static final String[] CRITERIA_OPTIONS = {

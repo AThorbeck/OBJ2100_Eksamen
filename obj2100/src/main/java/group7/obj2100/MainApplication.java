@@ -562,7 +562,7 @@ public class MainApplication extends JFrame {
         // Connect to the MySQL database
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/classicmodels", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/classicmodels", "student", "student");
         } catch (SQLException e) {
             e.printStackTrace();
         }

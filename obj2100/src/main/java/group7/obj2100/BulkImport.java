@@ -74,7 +74,7 @@ public class BulkImport {
             String selectedTable = (String) JOptionPane.showInputDialog(null, "Select the table to import the data into:", "Table Selection", JOptionPane.QUESTION_MESSAGE, null, tableOptions, tableOptions[0]);
             
             // Database connection
-            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "root", "")) {
+            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student", "student")) {
                 importFileToDatabase(connection, file, selectedTable);
                 JOptionPane.showMessageDialog(null, "File imported successfully"); // Displays an message to the user if the import was successful
             } catch (IOException | SQLException e) {

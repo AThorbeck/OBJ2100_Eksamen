@@ -81,8 +81,8 @@ public class ListAllProd extends JFrame {
     static Connection  getConnection(){
 
         String url = "jdbc:mysql://localhost:3306/classicmodels";
-        String username = "root";
-        String password = "";
+        String username = "student";
+        String password = "student";
 
         Connection connection = null;
 

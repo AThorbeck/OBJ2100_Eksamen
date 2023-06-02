@@ -20,8 +20,8 @@ public class EmployeeFormDialog extends JFrame {
 
     // Database connection parameters
     private static String url = "jdbc:mysql://localhost:3306/classicmodels";
-    private static String username = "root";
-    private static String password = "";
+    private static String username = "student";
+    private static String password = "student";
 
     public EmployeeFormDialog(JFrame parent) {
         super("Employee Form");

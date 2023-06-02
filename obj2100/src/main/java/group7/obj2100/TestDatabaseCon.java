@@ -12,8 +12,8 @@ public static void main(String[] args) throws SQLException {
 
 
     String dbUrl = "jdbc:mysql://localhost:3306/classicmodels";
-    String user = "root";
-    String pass = "";
+    String user = "student";
+    String pass = "student";
     try {
         // 1. Get a connection to database
         connection = DriverManager.getConnection(dbUrl, user, pass);
